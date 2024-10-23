@@ -16,7 +16,7 @@ select, input, textarea {
     sans-serif;
 }
 
-/* Navbar Styling */
+/* Activity 2a: Navbar Styling */
 
 #navbar {
     /*
@@ -26,6 +26,12 @@ select, input, textarea {
     - Add a bottom margin of 35px
     - Add a padding of 25px to thicken navbar
     */
+    background-color: #f9a857;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding: 25px;
 }
 
 .title a {
@@ -35,6 +41,10 @@ select, input, textarea {
     - Get rid of the link underline with text-decoration
     - Bold the text
     */
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .navButtons a {
@@ -46,6 +56,12 @@ select, input, textarea {
     - Set font size to 25px
     - Get rid of the link underline with text-decoration
     */
+    padding: 14px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 /* Homepage Styling */
@@ -53,7 +69,7 @@ h2 {
     text-align: center;
 }
 
-/* Trips Section Styling */
+/* Activity 2b: Trips Section Styling */
 .tripsContainer {
 /*
   - Allow for a flexible box layout where child elements (trip boxes) will be aligned
@@ -63,6 +79,12 @@ h2 {
   - Set the container width to 80% of its parent
   - Add a 20px space between each trip box
 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    gap: 20px;
 }
 
   
@@ -75,6 +97,12 @@ h2 {
   - Round the corners of each trip box by 8px
   - Add a shadow around each trip box
 */
+    flex: 1;
+    padding: 20px;
+    background-color: #f7cda3;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Upload Page Section */
