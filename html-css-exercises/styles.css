@@ -60,7 +60,11 @@ select, input, textarea {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
+<<<<<<< HEAD
+    font-size: 25px;
+=======
     font-size: 20px;
+>>>>>>> bfea9bb2cf15f7d7f162a943b9d41bf5917f4864
     text-decoration: none;
 }
 
@@ -80,11 +84,21 @@ h2 {
   - Add a 20px space between each trip box
 */
     display: flex;
+<<<<<<< HEAD
+    
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+    gap: 20px
+
+=======
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     width: 80%;
     gap: 20px;
+>>>>>>> bfea9bb2cf15f7d7f162a943b9d41bf5917f4864
 }
 
   
