@@ -1,8 +1,8 @@
+const mongoose = require('mongoose');
 const Activities = require("../models/activityModel");
 
 // Create a GET async function to get all activities using the activity model schema
 const getActivity = async (req, res) => {
-    // Only get destination from trip
     const activity = await Activities.find().populate('trip', 'destination');
     res.status(200).json(activity);
 }

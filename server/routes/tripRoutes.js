@@ -11,7 +11,5 @@ router.post('/trip', tripController.postTrip);
 router.get('/activity', activityController.getActivity);
 router.post('/activity', activityController.postActivity);
 
-router.get("/activity", activityController.getActivity);
-router.post("/activity", activityController.postActivity);
 
 module.exports = router;

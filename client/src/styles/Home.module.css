@@ -1,5 +1,9 @@
 /* Homepage Styling */
 
+/* .main {
+  margin-bottom: 20px;
+} */
+
 .title {
   text-align: center;
 }
@@ -16,6 +20,9 @@
 
 .tripBox {
   flex: 1;
+  /* flex-direction: column;
+  gap: 20px;
+  flex: 1; */
 }
 
 .tripBox h3 {
