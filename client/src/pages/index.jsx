@@ -1,24 +1,56 @@
+import { useState, useEffect } from "react";
 import TripCard from "@/components/TripCard";
 import ActivityCard from "@/components/ActivityCard";
+import TravelApi from "../api";
 import styles from "@/styles/Home.module.css";
 
 const Home = () => {
-  /* Activity 1: Add the useState hooks for 
-    trips, 
-    activities
-  */
+  const [trips, setTrips] = useState([]);
+  const [activities, setActivities] = useState([]);
 
+  const fetchTrips = async () => {
+    const response = await TravelApi.getTrip();
+    setTrips(response.data);
+    
+  }
+
+  const fetchActivities = async () => {
+    const response = await TravelApi.getActivity();
+    setActivities(response.data);
+  }
+
+  useEffect(() => {
+    fetchTrips();
+    fetchActivities();
+  }, []);
   return (
     <div className={styles.main}>
       <div className={styles.tripContainer}>
         <div className={styles.tripBox}>
           <h3>Trips</h3>
-          <TripCard destination="Paris" journalEntry="Had an amazing time visiting the Eiffel Tower!"
-          startDate="2024-09-01T00:00:00.000Z" endDate="2024-09-10T00:00:00.000Z"/>
+          {trips.length > 0 ? (
+            trips.map((trip) => (
+              <TripCard
+                key={trip._id}
+                {...trip}
+              />
+            ))
+          ) : (
+            <p>No trips available.</p>
+          )}
         </div>
         <div className={styles.tripBox}>
           <h3>Activities</h3>
-          <ActivityCard trip="Paris" activitySpot="Louvre Museum" rating="4" review="Visiting the Louvre Museum was a breathtaking experience! From the moment I entered, I was captivated by the sheer grandeur of the building itself—it's like stepping into a world where art and history come alive."/>
+          {activities.length > 0 ? (
+            activities.map((activity) => (
+              <ActivityCard
+                key={activity._id}
+                {...activity}
+              />
+            ))
+          ) : (
+            <p>No activities available.</p>
+          )}
         </div>
       </div>
     </div>

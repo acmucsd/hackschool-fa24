@@ -1,9 +1,8 @@
 import Image from "next/image";
 import styles from "./style.module.css";
 
-// Add the props inside ()
-const TripCard = () => {
-  // Function to format the date into this format: August 31, 2024
+const TripCard = ({ destination, startDate, endDate, journalEntry }) => {
+  // Bonus: Format date function
   const formatDate = (date) => {
     if (!date) return '';
 
@@ -11,21 +10,21 @@ const TripCard = () => {
     return new Date(date).toLocaleDateString(undefined, options);
   };
 
-  // Remember to use the props using {} inside the <p> tags
   return (
     <div className={styles.card}>
       <Image src="/travel_placeholder.jpg" width={550} height={300}/>
       <p className={styles.cardContent}>
-        <strong>Destination: </strong>
+        <strong>Destination: </strong> {destination}
       </p>
       <p className={styles.cardContent}>
-        <strong>Start Date:</strong>
+        <strong>Start Date:</strong> {formatDate(startDate)}
       </p>
       <p className={styles.cardContent}>
-        <strong>End Date:</strong>
+        <strong>End Date:</strong> {formatDate(endDate)}
       </p>
       <p className={styles.cardContent}>
-        <strong>Journal Entry:</strong> </p>
+        <strong>Journal Entry:</strong> {journalEntry}
+      </p>
     </div>
   );
 };
