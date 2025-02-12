@@ -161,13 +161,15 @@ and handles success and errors using .then/.catch
 // YOUR CODE HERE
 
 async function fetchExchangeRate(currency1, currency2){
-    let result = await getExchangeRate(currency1,currency2) // call gER
-    .then((successMessage) => {
-        console.log(successMessage)});
-    .catch((errorMessage) => {console.log(errorMessage)});
-}
-
-// Example calls:
-fetchExchangeRate('USD', 'EUR')
-fetchExchangeRate('USD', 'GBP')  // This should trigger an error
+    let result = getExchangeRate(currency1, currency2);
+    result.then((successMessage) => {
+      console.log(successMessage);
+    })
+    .catch((errorMessage) => {
+      console.log(errorMessage);
+    });
+  }
+  // Example calls:
+  // fetchExchangeRate('USD', 'EUR');
+  fetchExchangeRate('USD', 'GBP')  // This should trigger an error
 

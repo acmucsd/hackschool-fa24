@@ -1,23 +1,31 @@
-const getTrip = async (req, res) => {
-    // We don't have a database yet, so we'll hard-code a trip to return.
-    const trip = [
-        {
-            destination: 'Paris',
-            startDate: '2024-08-01',
-            endDate: '',
-            journalEntry: 'Had a wonderful time visiting the Eiffel Tower and the Louvre.'
-        }
-    ];
+const Trips = require('../models/tripModel');
 
+// Create a GET async function to get all trips using the trip model schema
+const getTrip = async (req, res) => {
+    const trip = await trip.find();
     res.status(200).json(trip);
 }
 
-const getTripName = async (req, res) => {
-   /*
-    Create a GET route that accepts a trip’s name as a query parameter and responds with a unique message.
-    Check for the name query parameter.
-    Respond with a JSON object that says "We are going to [name]."
-   */
+// Create a POST async function to add a trip using the trip model schema
+const postTrip = async (req, res) => {
+    // Extracts specific fields from the request body of our trip model schema
+    const{destination,startDate,endDate,journalEntry} = activity;
+    
+    // Check for missing required fields and return an error if any required field is absent
+    if(!destination || !startDate || !journalEntry){
+        return res.status(400).json({error: 'Invalid request'})
+    }
+
+    const start = new Date(startDate);
+    const end = endDate ? new Date(endDate) : null;
+
+    if (end && start > end) {
+        return res.status(400).json({ error: 'End date must be after start date' });
+    }
+    else {
+        const newTrip = await Trips.create(req.body);
+        res.status(200).json(newTrip);
+    }
 }
 
-module.exports = { getTrip, getTripName };
+module.exports = { getTrip, postTrip };
